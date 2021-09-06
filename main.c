@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:36:38 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/06 20:24:53 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/06 20:42:55 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,9 @@ int	main(void)
 	push(&stack, -421);
 	push(&stack, 42);
 	push(&stack, 12);
-
-	while (stack)
-	{
-		printf("elem = %d, size %d\n", stack->data, stack->data);
-		stack = stack->next;
-	}
+	print(stack);
+	swap(&stack);
+	print(stack);
 	clear(&stack);
 	return (0);
 }
