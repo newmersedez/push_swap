@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:36:36 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/06 20:09:40 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 15:15:14 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define STACK_UTILS_H
 
 # include "../libft/libft.h"
-# include <stdlib.h>
 
 typedef struct s_stack
 {
@@ -27,6 +26,7 @@ typedef struct s_stack
 t_stack	*create(int data);
 void	clear(t_stack **stack);
 void	print(t_stack *stack);
+int		top(t_stack *stack);
 
 void	swap(t_stack **stack);
 void	swap_a(t_stack **a);
@@ -34,6 +34,8 @@ void	swap_b(t_stack **b);
 void	swap_a_swap_b(t_stack **a, t_stack **b);
 
 void	push(t_stack **stack, int data);
+void	push_a(t_stack **a, t_stack *b);
+void	push_b(t_stack **b, t_stack *a);
 
 void	rotate(t_stack **stack);
 
