@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:45:29 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 19:20:39 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/07 19:01:38 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/07 19:02:45 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+int	ft_strcat(const char *s1, const char *s2)
 {
-	t_stack	*a;
-	t_stack	*b;
+	size_t	i;
 
-	if (argc < 2)
-	{
-		ft_putstr("ERROR\n");
-		exit(1);
-	}
-	a = NULL;
-	b = NULL;
-	fill_stack(&a, argc, argv);
-	print(a);
-	clear(&a);
-	clear(&b);
-	return (0);
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
