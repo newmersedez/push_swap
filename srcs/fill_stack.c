@@ -6,11 +6,11 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:32:36 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 19:25:46 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 19:50:31 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static int	is_correct_argument(const char *str)
 {
