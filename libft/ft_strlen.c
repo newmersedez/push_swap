@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:45:29 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 18:10:57 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/07 17:50:38 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/07 17:50:39 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+size_t	ft_strlen(const char *s)
 {
-	t_stack	*a;
-	t_stack	*b;
+	size_t	i;
 
-	if (argc < 3)
-	{
-		ft_putstr("ERROR\n");
-		exit(1);
-	}
-	a = NULL;
-	b = NULL;
-	fill_stack(&a, argc, argv);
-	print(a);
-	clear(&a);
-	clear(&b);
-	return (0);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

@@ -1,1 +1,1 @@
-gcc ./libft/*.c ./stack/*.c ./srcs/*.c push_swap.c -o push_swap
+gcc -Wall -Wextra -Werror ./libft/*.c ./stack/*.c ./srcs/*.c push_swap.c -o push_swap

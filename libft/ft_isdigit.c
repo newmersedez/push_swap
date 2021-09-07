@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:45:29 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 18:10:57 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/07 17:44:55 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/07 17:45:32 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+int	ft_isdigit(char c)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	if (argc < 3)
-	{
-		ft_putstr("ERROR\n");
-		exit(1);
-	}
-	a = NULL;
-	b = NULL;
-	fill_stack(&a, argc, argv);
-	print(a);
-	clear(&a);
-	clear(&b);
+	if (c >= '0' && c <= '9')
+		return (1);
 	return (0);
 }
