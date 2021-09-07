@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 18:16:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 15:25:20 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 15:34:20 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	push_a(t_stack **a, t_stack *b)
 	if (!a || !b)
 		return ;
 	push(a, b->data);
+	ft_putstr("pa\n");
 }
 
 void	push_b(t_stack **b, t_stack *a)
@@ -45,4 +46,5 @@ void	push_b(t_stack **b, t_stack *a)
 	if (!a || !b)
 		return ;
 	push(b, a->data);
+	ft_putstr("pb\n");
 }

@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 20:16:23 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 15:33:19 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/07 15:32:45 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/07 15:33:07 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr(int n);
-void	ft_putstr(char *s);
-void	ft_putchar(char c);
-
-#endif
+void	ft_putstr(char *s)
+{
+	ft_putstr_fd(s, 1);
+}

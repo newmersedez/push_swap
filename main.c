@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:36:38 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 15:28:06 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 15:35:14 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ int	main(void)
 
 	a = NULL;
 	b = NULL;
-	push(&b, 12);
-	push(&b, -12);
-	push(&a, 123);
-
+	push(&a, 1);
+	push(&a, 2);
+	push(&a, 3);
 	print(a);
-	print(b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:36:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 15:14:16 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 15:31:42 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,4 @@ void	print(t_stack *stack)
 		ft_putchar('\n');
 		stack = stack->next;
 	}
-}
-
-int		top(t_stack *stack)
-{
-	return (stack->data);
 }
