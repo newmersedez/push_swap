@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 18:20:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 16:01:46 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 16:22:22 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	swap(t_stack **stack)
 	t_stack	*temp_first;
 	t_stack	*temp_second;
 	t_stack	*temp_third;
-	size_t	temp_size;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
@@ -29,9 +28,6 @@ void	swap(t_stack **stack)
 		temp_second->next = temp_first;
 		temp_first->next = temp_third;
 		*stack = temp_second;
-		temp_size = (*stack)->data;
-		(*stack)->size = (*stack)->next->size;
-		(*stack)->next->size = temp_size;
 	}	
 }
 

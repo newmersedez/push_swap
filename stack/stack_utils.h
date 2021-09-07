@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:36:36 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 16:10:25 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 16:23:41 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 typedef struct s_stack
 {
 	int				data;
-	size_t			size;
-
 	struct s_stack	*next;
 }	t_stack;
 
@@ -41,5 +39,10 @@ void	rotate(t_stack **stack);
 void	rotate_a(t_stack **a);
 void	rotate_b(t_stack **b);
 void	rotate_a_and_rotate_b(t_stack **a, t_stack **b);
+
+void	reverse_rotate(t_stack **stack);
+void	reverse_rotate_a(t_stack **a);
+void	reverse_rotate_b(t_stack **b);
+void	reverse_rotate_a_and_reverse_rotate_b(t_stack **a, t_stack **b);
 
 #endif
