@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   fill_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 17:14:35 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 17:33:35 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/07 17:32:36 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/07 17:40:20 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../push_swap.h"
 
-# include "./stack/stack_utils.h"
-# include "./libft/libft.h"
-
-void	fill_stack(t_stack **stack, int argc, char *argv[]);
-
-#endif
+void	fill_stack(t_stack **stack, int argc, char *argv[])
+{
+	
+}

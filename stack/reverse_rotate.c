@@ -6,13 +6,13 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 18:16:58 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 17:08:58 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 17:39:40 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_utils.h"
 
-void	reverse_rotate(t_stack **stack)
+static void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*stack_first;
 	t_stack	*temp_stack;

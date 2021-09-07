@@ -6,13 +6,13 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 18:16:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 16:22:02 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 17:39:34 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_utils.h"
 
-void	push(t_stack **stack, int data)
+static void	push(t_stack **stack, int data)
 {
 	t_stack	*new_stack;
 	t_stack	*temp_stack;

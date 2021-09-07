@@ -6,13 +6,13 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 18:17:01 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 17:09:32 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/07 17:39:44 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_utils.h"
 
-void	rotate(t_stack **stack)
+static void	rotate(t_stack **stack)
 {
 	t_stack	*temp_stack;
 	t_stack	*stack_first;
