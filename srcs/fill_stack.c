@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:32:36 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/09 17:39:08 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 17:49:04 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	fill_stack_with_args(t_stack **stack, int argc, char *argv[])
 {
 	size_t	i;
 
+	if (argc < 2)
+		handle_filling_error(stack);
 	i = 1;
 	while (i < (size_t)argc)
 	{

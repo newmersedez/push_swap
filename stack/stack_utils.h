@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:36:36 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/09 17:06:51 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 17:44:03 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct s_stack
 {
 	int				data;
+	size_t			index;
 	struct s_stack	*next;
 }	t_stack;
 

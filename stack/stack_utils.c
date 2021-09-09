@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:36:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/09 17:04:49 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 17:44:16 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*stack_create(int data)
 	if (!new_stack)
 		return (NULL);
 	new_stack->data = data;
+	new_stack->index = 0;
 	new_stack->next = NULL;
 	return (new_stack);
 }
