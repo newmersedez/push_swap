@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:32:36 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/09 17:19:12 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 17:27:25 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	find_dublicates(int *array, size_t size)
 	return (0);
 }
 
-static int	check_duplicates(t_stack **stack)
+static int	check_dublicates_in_stack(t_stack **stack)
 {
 	int		i;
 	int		*array;
@@ -87,7 +87,7 @@ static int	check_duplicates(t_stack **stack)
 	return (return_value);
 }
 
-void	fill_stack(t_stack **stack, int argc, char *argv[])
+void	fill_stack_with_args(t_stack **stack, int argc, char *argv[])
 {
 	size_t	i;
 
@@ -100,6 +100,6 @@ void	fill_stack(t_stack **stack, int argc, char *argv[])
 			handle_filling_error(stack);
 		i++;
 	}
-	if (check_duplicates(stack))
+	if (check_dublicates_in_stack(stack))
 		handle_filling_error(stack);
 }
