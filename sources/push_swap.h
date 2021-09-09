@@ -18,8 +18,6 @@
 
 void	handle_error(t_stack **stack);
 void	fill_stack_with_args(t_stack **stack, int argc, char *argv[]);
-void	sorting_algorythm(t_stack **a, t_stack **b);
-void	sort_small_stack(t_stack **a, t_stack **b);
-void	sort_big_stack(t_stack **a, t_stack **b);
+void	start_sorting(t_stack **a, t_stack **b);
 
 #endif

@@ -20,7 +20,7 @@ int	main(int argc, char *argv[])
 	a = NULL;
 	b = NULL;
 	fill_stack_with_args(&a, argc, argv);
-	sorting_algorythm(&a, &b);
+	start_sorting(&a, &b);
 	stack_clear(&a);
 	stack_clear(&b);
 	return (0);
