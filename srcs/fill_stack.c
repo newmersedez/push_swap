@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:32:36 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/09 17:36:16 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 17:39:08 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static int	check_dublicates_in_stack(t_stack **stack)
 		return (0);
 	array = (int *)malloc(stack_size(*stack) * sizeof(int));
 	if (!array)
-		handle_filling_error(stack);
+		return (0);
 	i = 0;
 	temp_stack = *stack;
 	while (temp_stack)
