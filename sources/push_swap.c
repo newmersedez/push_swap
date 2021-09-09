@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 18:16:35 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/09 18:22:27 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 18:44:26 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char *argv[])
 	a = NULL;
 	b = NULL;
 	fill_stack_with_args(&a, argc, argv);
+	sorting_algorythm(&a, &b);
 	stack_clear(&a);
 	stack_clear(&b);
 	return (0);

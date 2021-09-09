@@ -6,18 +6,11 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:32:36 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/09 17:49:04 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 18:50:26 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	handle_filling_error(t_stack **stack)
-{
-	ft_putstr("ERROR\n");
-	stack_clear(stack);
-	exit(1);
-}
 
 static int	is_correct_argument(const char *str)
 {
@@ -92,16 +85,16 @@ void	fill_stack_with_args(t_stack **stack, int argc, char *argv[])
 	size_t	i;
 
 	if (argc < 2)
-		handle_filling_error(stack);
+		handle_error(stack);
 	i = 1;
 	while (i < (size_t)argc)
 	{
 		if (is_correct_argument(argv[i]))
 			push(stack, ft_atoi(argv[i]));
 		else
-			handle_filling_error(stack);
+			handle_error(stack);
 		i++;
 	}
 	if (check_dublicates_in_stack(stack))
-		handle_filling_error(stack);
+		handle_error(stack);
 }
