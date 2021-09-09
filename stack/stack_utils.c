@@ -6,13 +6,13 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:36:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 16:22:08 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 17:04:49 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_utils.h"
 
-t_stack	*create(int data)
+t_stack	*stack_create(int data)
 {
 	t_stack	*new_stack;
 
@@ -24,7 +24,7 @@ t_stack	*create(int data)
 	return (new_stack);
 }
 
-void	clear(t_stack **stack)
+void	stack_clear(t_stack **stack)
 {
 	t_stack	*temp_stack;
 
@@ -42,7 +42,7 @@ void	clear(t_stack **stack)
 	}
 }
 
-void	print(t_stack *stack)
+void	stack_print(t_stack *stack)
 {
 	if (!stack)
 		return ;
@@ -52,4 +52,19 @@ void	print(t_stack *stack)
 		ft_putchar('\n');
 		stack = stack->next;
 	}
+}
+
+size_t	stack_size(t_stack *stack)
+{
+	size_t	size;
+
+	if (!stack)
+		return (0);
+	size = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		size++;
+	}
+	return (size);
 }

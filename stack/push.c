@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 18:16:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 18:02:32 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 17:07:20 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	push(t_stack **stack, int data)
 
 	if (!stack)
 		return ;
-	new_stack = create(data);
+	new_stack = stack_create(data);
 	if (!new_stack)
 		return ;
 	if (!*stack)

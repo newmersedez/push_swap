@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 18:36:36 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/07 18:02:55 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/09 17:06:51 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-t_stack	*create(int data);
-void	clear(t_stack **stack);
-void	print(t_stack *stack);
+t_stack	*stack_create(int data);
+void	stack_clear(t_stack **stack);
+void	stack_print(t_stack *stack);
+size_t	stack_size(t_stack *stack);
 
 void	swap_a(t_stack **a);
 void	swap_b(t_stack **b);
