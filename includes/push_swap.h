@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:17:07 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 17:33:40 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/10 18:06:38 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,9 @@
 
 # include "stack_utils.h"
 # include "libft.h"
+
+t_stack	*fill_stack_with_args(int argc, char *argv[]);
+void	clear_stacks(t_stack **a, t_stack **b);
+void	display_message(void);
 
 #endif
