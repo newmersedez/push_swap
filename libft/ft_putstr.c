@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 17:55:57 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/10 17:45:07 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/10 17:55:10 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char *argv[])
+void	ft_putstr(char *s)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	(void)argc;
-	(void)argv;
-	a = stack_create(1);
-	stack_clear(&a);
-	stack_clear(&b);
-	return (0);
+	if (!s)
+		return ;
+	while (*s)
+	{
+		ft_putchar(*s);
+		s++;
+	}
 }

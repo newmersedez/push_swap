@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 17:55:57 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/10 17:17:44 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/10 17:45:13 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	main(int argc, char *argv[])
-{
-	t_stack	*a;
-	t_stack	*b;
+# include <stdlib.h>
+# include <unistd.h>
 
-	(void)argc;
-	(void)argv;
-	a = stack_create(1);
-	stack_clear(&a);
-	stack_clear(&b);
-	return (0);
-}
+void	ft_putstr(char *s);
+void	ft_putchar(char c);
+
+#endif
