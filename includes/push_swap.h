@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:17:07 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 18:09:37 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/10 18:28:23 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 t_stack	*fill_stack_with_args(int argc, char *argv[]);
 void	clear_stacks(t_stack **a, t_stack **b);
-void	display_message(void);
 void	emergency_exit(t_stack **a, t_stack **b);
+void	good_exit(t_stack **a, t_stack **b);
 
 #endif
