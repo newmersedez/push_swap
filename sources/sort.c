@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 20:51:06 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 21:21:05 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/10 21:52:05 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	sort(t_stack **a, t_stack **b)
 {
-	if (stack_size(*a) < ALGORITHM_LIMIT)
-		small_sort(a, b);
+	(void)a;
+	(void)b;
 }

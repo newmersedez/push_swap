@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 20:57:20 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 21:19:24 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/10 21:51:50 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	small_sort(t_stack **a, t_stack **b)
 {
-	push_b(a, b);
+	(void)a;
+	(void)b;
 }
