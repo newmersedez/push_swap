@@ -6,12 +6,12 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:59:19 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 19:46:18 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/10 21:21:30 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
+
 static int	is_correct_arguments(int argc, char *argv[])
 {
 	size_t	i;
@@ -93,10 +93,5 @@ void	fill_stack_with_args(t_stack **a, int argc, char *argv[])
 	{
 		push(a, ft_atoi(argv[i]));
 		i++;
-	}
-	while (*a)
-	{
-		printf("%d\n", (*a)->data);
-		*a = (*a)->next;
 	}
 }

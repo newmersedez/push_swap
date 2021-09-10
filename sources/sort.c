@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 21:21:02 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/10 20:51:06 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/10 21:21:05 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char *argv[])
+void	sort(t_stack **a, t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	a = NULL;
-	b = NULL;
-	fill_stack_with_args(&a, argc, argv);
-	sort(&a, &b);
-	success_exit(&a, &b);
-	return (0);
+	if (stack_size(*a) < ALGORITHM_LIMIT)
+		small_sort(a, b);
 }

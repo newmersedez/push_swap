@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:34:54 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 17:54:30 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/10 21:18:30 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,18 @@ void	reverse_rotate(t_stack **stack)
 void	reverse_rotate_a(t_stack **a)
 {
 	reverse_rotate(a);
+	ft_putendl("rra");
 }
 
 void	reverse_rotate_b(t_stack **b)
 {
 	reverse_rotate(b);
+	ft_putendl("rrb");
 }
 
 void	reverse_rotate_a_and_reverse_rotate_b(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
+	ft_putendl("rrr");
 }

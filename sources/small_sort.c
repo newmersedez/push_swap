@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 21:21:02 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/10 20:57:20 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/10 21:19:24 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char *argv[])
+void	small_sort(t_stack **a, t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	a = NULL;
-	b = NULL;
-	fill_stack_with_args(&a, argc, argv);
-	sort(&a, &b);
-	success_exit(&a, &b);
-	return (0);
+	push_b(a, b);
 }
