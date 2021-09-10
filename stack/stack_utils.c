@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:53:05 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 17:54:44 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/10 18:37:09 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,19 @@ void	stack_clear(t_stack **stack)
 		}
 		*stack = NULL;
 	}
+}
+
+size_t	stack_size(t_stack *stack)
+{
+	size_t	size;
+
+	if (!stack)
+		return (0);
+	size = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		size++;
+	}
+	return (size);
 }
