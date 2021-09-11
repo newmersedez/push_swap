@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:53:05 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 21:12:02 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 17:20:28 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,14 @@ void	pop(t_stack **stack)
 	if (!stack || !*stack)
 		return ;
 	if (!(*stack)->next)
-		temp_stack = *stack;
+	{
+		free(*stack);
+		*stack = NULL;
+	}
 	else
 	{
 		temp_stack = *stack;
 		*stack = (*stack)->next;
+		free(temp_stack);
 	}
-	free(temp_stack);
 }

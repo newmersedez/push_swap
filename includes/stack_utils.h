@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:53:02 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 21:21:27 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 18:08:49 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	swap_a_swap_b(t_stack **a, t_stack **b);
 
 void	push(t_stack **stack, int data);
 void	push_a(t_stack **a, t_stack **b);
-void	push_b(t_stack **b, t_stack **a);
+void	push_b(t_stack **a, t_stack **b);
 
 void	rotate(t_stack **stack);
 void	rotate_a(t_stack **a);
