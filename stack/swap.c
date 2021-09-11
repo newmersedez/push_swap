@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:34:52 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 20:19:15 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 21:01:45 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,28 @@ void	swap(t_stack **stack)
 
 void	swap_a(t_stack **a)
 {
-	swap(a);
-	ft_putendl("sa");
+	if ((*a)->top_id > 0)
+	{
+		swap(a);
+		ft_putendl("sa");
+	}
 }
 
 void	swap_b(t_stack **b)
 {
-	swap(b);
-	ft_putendl("sb");
+	if ((*b)->top_id > 0)
+	{
+		swap(b);
+		ft_putendl("sb");
+	}
 }
 
 void	swap_a_swap_b(t_stack **a, t_stack **b)
 {
-	swap(a);
-	swap(b);
-	ft_putendl("ss");
+	if ((*a)->top_id > 0 || (*b)->top_id > 0)
+	{
+		swap(a);
+		swap(b);
+		ft_putendl("ss");
+	}
 }

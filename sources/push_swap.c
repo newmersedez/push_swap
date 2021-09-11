@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 20:48:32 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 21:01:54 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,6 @@ int	main(int argc, char *argv[])
 	b = stack_create(10);
 	if (!a || !b || !a->array || !b->array)
 		fail_exit(&a, &b);
-	push(&a, 1);
-	push(&a, 2);
-	push(&a, 3);
-	push(&a, 4);
-	print(a);
-	rotate_a(&a);
-	print(a);
 	// fill_stack_with_args(&a, argc, argv);
 	success_exit(&a, &b);
 	return (0);
