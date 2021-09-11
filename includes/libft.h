@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:17:44 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 18:55:55 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 17:03:47 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ int		ft_strcmp(char *str1, char *str2);
 void	ft_putendl(char *s);
 void	ft_putchar(char c);
 char	*ft_itoa(int n);
-
 #endif

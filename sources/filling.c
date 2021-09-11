@@ -6,12 +6,12 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:59:19 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 21:21:30 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 17:04:54 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
+#include <stdio.h>
 static int	is_correct_arguments(int argc, char *argv[])
 {
 	size_t	i;
@@ -80,18 +80,16 @@ void	fill_stack_with_args(t_stack **a, int argc, char *argv[])
 {
 	size_t	i;
 
-	if (argc < 2 || !argv)
-		exit(EXIT_SUCCESS);
 	if (!is_correct_arguments(argc, argv))
 		fail_exit(NULL, NULL);
 	if (!is_unique_arguments(argc, argv))
 		fail_exit(NULL, NULL);
 	if (is_sorted_arguments(argc, argv))
 		exit(EXIT_SUCCESS);
-	i = 1;
-	while (i < (size_t)argc)
+	i = argc - 1;
+	while (i > 0)
 	{
 		push(a, ft_atoi(argv[i]));
-		i++;
+		i--;
 	}
 }
