@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:17:44 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 17:03:47 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 21:32:45 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@
 # include <unistd.h>
 
 int		ft_isdigit(int c);
+char	*ft_itoa(int n);
 int		ft_atoi(const char *str);
 int		ft_strcmp(char *str1, char *str2);
-void	ft_putendl(char *s);
+
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+
 void	ft_putchar(char c);
-char	*ft_itoa(int n);
+void	ft_putstr(char *s);
+void	ft_putendl(char *s);
+
 #endif

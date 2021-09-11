@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:45:07 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/10 19:33:07 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 21:31:56 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 void	ft_putendl(char *s)
 {
-	if (!s)
-		return ;
-	while (*s)
-	{
-		ft_putchar(*s);
-		s++;
-	}
+	ft_putstr(s);
 	ft_putchar('\n');
 }

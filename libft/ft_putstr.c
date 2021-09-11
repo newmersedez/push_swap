@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 17:45:05 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 21:33:14 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/11 21:30:25 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/11 21:33:19 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putchar(char c)
+void	ft_putstr(char *s)
 {
-	ft_putchar_fd(c, 1);
+	ft_putstr_fd(s, 1);
 }

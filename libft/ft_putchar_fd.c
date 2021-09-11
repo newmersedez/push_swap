@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 17:45:05 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 21:33:14 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/11 21:26:30 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/11 21:32:54 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putchar(char c)
+void	ft_putchar_fd(char c, int fd)
 {
-	ft_putchar_fd(c, 1);
+	write(fd, &c, 1);
 }
