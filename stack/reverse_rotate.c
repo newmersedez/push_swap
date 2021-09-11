@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:34:54 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 15:33:38 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 20:48:42 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	reverse_rotate(t_stack **stack)
 {
-	t_stack	*stack_first;
-	t_stack	*temp_stack;
-	t_stack	*stack_last;
+	int	pos;
+	int	temp_data;
 
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	stack_first = *stack;
-	temp_stack = *stack;
-	while (temp_stack->next->next)
-		temp_stack = temp_stack->next;
-	stack_last = temp_stack->next;
-	temp_stack->next = NULL;
-	stack_last->next = stack_first;
-	*stack = stack_last;
+	pos = (*stack)->top_id;
+	if (pos > 0)
+	{
+		temp_data = (*stack)->array[pos];
+		while (pos)
+		{
+			(*stack)->array[pos + 1] = (*stack)->array[pos];
+			pos--;
+		}
+		(*stack)->array[0] = temp_data;
+	}
 }
 
 void	reverse_rotate_a(t_stack **a)

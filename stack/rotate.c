@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:34:54 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 15:33:17 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 20:48:17 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 void	rotate(t_stack **stack)
 {
-	t_stack	*temp_stack;
-	t_stack	*stack_first;
-	t_stack	*stack_last;
+	int	pos;
+	int	temp_data;
 
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	temp_stack = *stack;
-	stack_first = (*stack)->next;
-	stack_last = *stack;
-	while (stack_last->next)
-		stack_last = stack_last->next;
-	temp_stack->next = NULL;
-	stack_last->next = temp_stack;
-	*stack = stack_first;
+	pos = (*stack)->top_id + 1;
+	temp_data = (*stack)->array[pos - 1];
+	while (pos)
+	{
+		(*stack)->array[pos] = (*stack)->array[pos - 1];
+		pos--;
+	}
+	(*stack)->array[0] = temp_data;
 }
 
 void	rotate_a(t_stack **a)

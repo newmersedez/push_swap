@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:34:52 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 15:32:49 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 20:19:15 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,16 @@
 
 void	swap(t_stack **stack)
 {
-	t_stack	*temp_first;
-	t_stack	*temp_second;
-	t_stack	*temp_third;
+	int	temp_data;
+	int	top_id;
 
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	else
+	top_id = (*stack)->top_id;
+	if (top_id > 0)
 	{
-		temp_first = *stack;
-		temp_second = (*stack)->next;
-		temp_third = (*stack)->next->next;
-		temp_second->next = temp_first;
-		temp_first->next = temp_third;
-		*stack = temp_second;
-	}	
+		temp_data = (*stack)->array[top_id];
+		(*stack)->array[top_id] = (*stack)->array[top_id - 1];
+		(*stack)->array[top_id - 1] = temp_data;
+	}
 }
 
 void	swap_a(t_stack **a)

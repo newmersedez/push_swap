@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:34:53 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 17:07:04 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 20:13:07 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,38 @@
 
 void	push(t_stack **stack, int data)
 {
-	t_stack	*new_stack;
-	t_stack	*temp_stack;
+	int	insert_id;
 
-	if (!stack)
-		return ;
-	new_stack = stack_create(data);
-	if (!new_stack)
-		return ;
-	if (!*stack)
-		*stack = new_stack;
-	else
-	{
-		temp_stack = *stack;
-		*stack = new_stack;
-		new_stack->next = temp_stack;
-	}
+	insert_id = ++(*stack)->top_id;
+	(*stack)->array[insert_id] = data;
 }
 
 void	push_a(t_stack **a, t_stack **b)
 {
-	if (!a || !b || !*b)
-		return ;
-	push(a, (*b)->data);
-	pop(b);
-	ft_putendl("pa");
+	int	move_id;
+	int	move_data;
+
+	move_id = (*b)->top_id;
+	if (move_id != -1)
+	{
+		move_data = (*b)->array[move_id];
+		push(a, move_data);
+		pop(b);
+		ft_putendl("pa");
+	}
 }
 
 void	push_b(t_stack **a, t_stack **b)
 {
-	if (!a || !*a || !b)
-		return ;
-	push(b, (*a)->data);
-	pop(a);
-	ft_putendl("pb");
+	int	move_id;
+	int	move_data;
+
+	move_id = (*a)->top_id;
+	if (move_id != -1)
+	{
+		move_data = (*a)->array[move_id];
+		push(b, move_data);
+		pop(a);
+		ft_putendl("pb");
+	}
 }

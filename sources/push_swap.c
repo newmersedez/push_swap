@@ -6,23 +6,26 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 18:28:51 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 20:48:32 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-// static void	stack_print(t_stack *a)
-// {
-// 	if (!a)
-// 		return;
-// 	while (a)
-// 	{
-// 		printf("%d\n", a->data);
-// 		a = a->next;
-// 	}
-// }
+static void	print(t_stack *a)
+{
+	int i;
+	
+	if (!a || a->top_id == -1)
+		return ;
+	i = a->top_id;
+	while (i > -1)
+	{
+		printf("%d\n", a->array[i]);
+		i--;
+	}
+}
 
 int	main(int argc, char *argv[])
 {
@@ -31,10 +34,18 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2 || !argv)
 		exit(EXIT_SUCCESS);
-	a = NULL;
-	b = NULL;
-	fill_stack_with_args(&a, argc, argv);
-	sort(&a, &b);
+	a = stack_create(10);
+	b = stack_create(10);
+	if (!a || !b || !a->array || !b->array)
+		fail_exit(&a, &b);
+	push(&a, 1);
+	push(&a, 2);
+	push(&a, 3);
+	push(&a, 4);
+	print(a);
+	rotate_a(&a);
+	print(a);
+	// fill_stack_with_args(&a, argc, argv);
 	success_exit(&a, &b);
 	return (0);
 }
