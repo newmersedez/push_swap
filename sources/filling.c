@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:59:19 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 20:06:37 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/11 21:21:24 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,17 @@ static int	is_sorted_arguments(int argc, char *argv[])
 	return (1);
 }
 
-void	fill_stack_with_args(t_stack **a, int argc, char *argv[])
+void	fill_stack_with_args(t_stack **a, t_stack **b, int argc, char *argv[])
 {
 	size_t	i;
 
 	if (!is_correct_arguments(argc, argv))
-		fail_exit(NULL, NULL);
+		fail_exit(a, b);
 	if (!is_unique_arguments(argc, argv))
-		fail_exit(NULL, NULL);
+		fail_exit(a, b);
 	if (is_sorted_arguments(argc, argv))
-		exit(EXIT_SUCCESS);
+		success_exit(a, b);
 	i = argc - 1;
-	while (i > 0)
-	{
-		push(a, ft_atoi(argv[i]));
-		i--;
-	}
+	while (i)
+		push(a, ft_atoi(argv[i--]));
 }
