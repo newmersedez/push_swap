@@ -63,6 +63,7 @@ static void	smart_insert_to_a(t_stack **a, t_stack **b)
 	int	b_first;
 	int	pos;
 	int	i;
+	size_t	size;
 
 	a_first = (*a)->array[(*a)->top_id];
 	a_last = (*a)->array[0];
@@ -78,30 +79,38 @@ static void	smart_insert_to_a(t_stack **a, t_stack **b)
 	}
 	else if (b_first > a_first && b_first < a_last)
 	{
-		pos = find_close_position(a, b_first);
-		if (pos >= (*a)->size / 2)
+		pos = find_close_position(*a, b_first);
+		size = (*a)->top_id + 1;
+		if (pos <= size / 2)
 		{
 			i = 0;
 			while (i < pos)
 			{
-				reverse_rotate_a(a);		
+				reverse_rotate_a(a);
 				i++;
 			}
-			// push_a(a, b);
-			// swap_a(a);
-			// i = 0;
-			// while (i < pos)
-			// {
-			// 	rotate_a(a);		
-			// 	i++;
-			// }
+			push_a(a, b);
+			i = 0;
+			while (i <= pos)
+			{
+				rotate_a(a);
+				i++;
+			}
 		}
 		else
 		{
+			pos = (*a)->top_id - pos;
 			i = 0;
-			while (i < pos)
+			while (i <= pos)
 			{
-				reverse_rotate_a(a);		
+				rotate_a(a);
+				i++;
+			}
+			push_a(a, b);
+			i = 0;
+			while (i <= pos)
+			{
+				reverse_rotate_a(a);
 				i++;
 			}
 		}

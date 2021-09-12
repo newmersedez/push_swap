@@ -18,7 +18,6 @@ static void	stack_print(t_stack *a)
 
 	if (!a)
 		return ;
-	printf("\n\nsize = %ld\n", a->size);
 	i = a->top_id;
 	while (i >= 0)
 	{
