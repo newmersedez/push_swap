@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:53:05 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 17:49:28 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 19:25:30 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	pop(t_stack **stack)
 		(*stack)->top_id--;
 }
 
-int		min(t_stack *stack)
+int	min(t_stack *stack)
 {
 	size_t	i;
 	int		min;
@@ -68,7 +68,7 @@ int		min(t_stack *stack)
 	return (min);
 }
 
-int		max(t_stack *stack)
+int	max(t_stack *stack)
 {
 	size_t	i;
 	int		max;

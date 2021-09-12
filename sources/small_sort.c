@@ -6,41 +6,13 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 16:38:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 18:34:01 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 19:26:28 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
+#include <stdio.h>
 ////////////////////////////////////////////////////////////////////////////////////////
-
-static void	exec_command(char *operation, t_stack **a, t_stack **b)
-{
-	if (!ft_strcmp(operation, PA))
-		push_a(a, b);
-	else if (!ft_strcmp(operation, PB))
-		push_b(a, b);
-	else if (!ft_strcmp(operation, SA))
-		swap_a(a);
-	else if (!ft_strcmp(operation, SB))
-		swap_b(b);
-	else if (!ft_strcmp(operation, RA))
-		rotate_a(a);
-	else if (!ft_strcmp(operation, RB))
-		rotate_b(b);
-	else if (!ft_strcmp(operation, RRA))
-		reverse_rotate_a(a);
-	else if (!ft_strcmp(operation, RRB))
-		reverse_rotate_b(b);
-}
-
-static void	exec_command_n_times(char *operation, t_stack **a, t_stack **b, int n)
-{
-	if (n <= 0)
-		return ;
-	exec_command(operation, a, b);
-	exec_command_n_times(operation, a, b, n - 1);
-}
 
 static int	closest_above(t_stack **a, int n)
 {
@@ -65,14 +37,25 @@ void	smart_rotate_a(t_stack **a, int n)
 	int	find;
 
 	find = (*a)->top_id;
+	// printf("find = %d\n", find);
 	while (find >= 0 && (*a)->array[find] != n)
 		find--;
+	// printf("find = %d\n", find);
 	if (find < 0)
+	{
+		// printf("EXITT\n");
 		return ;
+	}
 	else if (find < (*a)->top_id / 2)
+	{
+		// printf("RRA works\n");
 		exec_command_n_times(RRA, a, NULL, find + 1);
+	}
 	else
+	{
+		// printf("RRA works\n");
 		exec_command_n_times(RA, a, NULL, (*a)->top_id - find);
+	}
 }
 
 static void	put_top_in_position(t_stack **a, t_stack **b)
@@ -121,7 +104,7 @@ void	sort_three_elements(t_stack **a)
 
 void	sort_five_elements(t_stack **a, t_stack **b)
 {
-	exec_command_n_times(PB, a, b, (size_t)(*a)->top_id - 2);
+	exec_command_n_times(PB, a, b, (*a)->top_id - 2);
 	sort_three_elements(a);
 	while ((*b)->top_id >= 0)
 		put_top_in_position(a, b);

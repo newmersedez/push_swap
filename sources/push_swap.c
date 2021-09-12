@@ -6,27 +6,27 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 18:31:26 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 19:25:13 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
-// static void	stack_print(t_stack *a)
-// {
-// 	int	i;
+static void	stack_print(t_stack *a)
+{
+	int	i;
 
-// 	if (!a)
-// 		return;
-// 	printf("\n\n");
-// 	i = a->top_id;
-// 	while (i >= 0)
-// 	{
-// 		printf("%d\n", a->array[i]);
-// 		i--;
-// 	}
-// 	printf("\n\n");
-// }
+	if (!a)
+		return ;
+	printf("\n\n");
+	i = a->top_id;
+	while (i >= 0)
+	{
+		printf("%d\n", a->array[i]);
+		i--;
+	}
+	printf("\n\n");
+}
 
 int	main(int argc, char *argv[])
 {
@@ -40,9 +40,9 @@ int	main(int argc, char *argv[])
 	if (!a || !b || !a->array || !b->array)
 		fail_exit(&a, &b);
 	fill_stack_with_args(&a, &b, argc, argv);
-	// stack_print(a);
+	stack_print(a);
 	sort(&a, &b);
-	// stack_print(a);
+	stack_print(a);
 	success_exit(&a, &b);
 	return (0);
 }
