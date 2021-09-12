@@ -6,74 +6,13 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 16:38:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 19:26:28 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 20:33:26 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
-////////////////////////////////////////////////////////////////////////////////////////
 
-static int	closest_above(t_stack **a, int n)
-{
-	int	k;
-	int	i;
-
-	if ((*a)->top_id < 0 || n > max(*a))
-		return (n);
-	i = 0;
-	k = max(*a);
-	while (i <= (*a)->top_id)
-	{
-		if ((*a)->array[i] > n && (*a)->array[i] < k)
-			k = (*a)->array[i];
-		i++;
-	}
-	return (k);
-}
-
-void	smart_rotate_a(t_stack **a, int n)
-{
-	int	find;
-
-	find = (*a)->top_id;
-	// printf("find = %d\n", find);
-	while (find >= 0 && (*a)->array[find] != n)
-		find--;
-	// printf("find = %d\n", find);
-	if (find < 0)
-	{
-		// printf("EXITT\n");
-		return ;
-	}
-	else if (find < (*a)->top_id / 2)
-	{
-		// printf("RRA works\n");
-		exec_command_n_times(RRA, a, NULL, find + 1);
-	}
-	else
-	{
-		// printf("RRA works\n");
-		exec_command_n_times(RA, a, NULL, (*a)->top_id - find);
-	}
-}
-
-static void	put_top_in_position(t_stack **a, t_stack **b)
-{
-	int	top_b;
-	int	to_move;
-
-	top_b = (*b)->array[(*b)->top_id];
-	to_move = closest_above(a, top_b);
-	if (to_move == top_b)
-		to_move = min(*a);
-	smart_rotate_a(a, to_move);
-	exec_command(PA, a, b);
-}
-
-////////////////////////////////////////////////////////////////////////////////////////
-
-void	sort_three_elements(t_stack **a)
+static void	sort_three_elements(t_stack **a)
 {
 	int	top_id;
 	int	first;
@@ -102,13 +41,80 @@ void	sort_three_elements(t_stack **a)
 	}
 }
 
-void	sort_five_elements(t_stack **a, t_stack **b)
+static int	find_close_position(t_stack *a, int n)
 {
-	exec_command_n_times(PB, a, b, (*a)->top_id - 2);
+	int i;
+
+	i = 0;
+	while (i != a->top_id)
+	{
+		if (n < a->array[i])
+			i++;
+		else
+			break ;
+	}
+	return (i);
+}
+
+static void	smart_insert_to_a(t_stack **a, t_stack **b)
+{
+	int	a_first;
+	int	a_last;
+	int	b_first;
+	int	pos;
+	int	i;
+
+	a_first = (*a)->array[(*a)->top_id];
+	a_last = (*a)->array[0];
+	b_first = (*b)->array[(*b)->top_id];
+	if (b_first < a_first && b_first < a_last)
+	{
+		push_a(a, b);
+	}
+	else if (b_first > a_first && b_first > a_last)
+	{
+		push_a(a, b);
+		rotate_a(a);
+	}
+	else if (b_first > a_first && b_first < a_last)
+	{
+		pos = find_close_position(a, b_first);
+		if (pos >= (*a)->size / 2)
+		{
+			i = 0;
+			while (i < pos)
+			{
+				reverse_rotate_a(a);		
+				i++;
+			}
+			// push_a(a, b);
+			// swap_a(a);
+			// i = 0;
+			// while (i < pos)
+			// {
+			// 	rotate_a(a);		
+			// 	i++;
+			// }
+		}
+		else
+		{
+			i = 0;
+			while (i < pos)
+			{
+				reverse_rotate_a(a);		
+				i++;
+			}
+		}
+	}
+}
+
+static void	sort_five_elements(t_stack **a, t_stack **b)
+{
+	while ((*a)->top_id != 2)
+		push_b(a, b);
 	sort_three_elements(a);
-	while ((*b)->top_id >= 0)
-		put_top_in_position(a, b);
-	smart_rotate_a(a, 0);
+	while ((*b)->top_id != -1)
+		smart_insert_to_a(a, b);
 }
 
 void	small_sort(t_stack **a, t_stack **b)

@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 19:25:13 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 19:30:33 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	stack_print(t_stack *a)
 
 	if (!a)
 		return ;
-	printf("\n\n");
+	printf("\n\nsize = %ld\n", a->size);
 	i = a->top_id;
 	while (i >= 0)
 	{
