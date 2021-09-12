@@ -6,12 +6,12 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:59:19 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 21:21:24 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 17:16:53 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
+
 static int	is_correct_arguments(int argc, char *argv[])
 {
 	size_t	i;
@@ -52,7 +52,7 @@ static int	is_unique_arguments(int argc, char *argv[])
 			if (prev_number == curr_number)
 				return (0);
 			j++;
-		}	
+		}
 		i++;
 	}
 	return (1);
@@ -87,6 +87,9 @@ void	fill_stack_with_args(t_stack **a, t_stack **b, int argc, char *argv[])
 	if (is_sorted_arguments(argc, argv))
 		success_exit(a, b);
 	i = argc - 1;
-	while (i)
-		push(a, ft_atoi(argv[i--]));
+	while (i > 0)
+	{
+		push(a, ft_atoi(argv[i]));
+		i--;
+	}
 }

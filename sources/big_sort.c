@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 17:16:43 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/12 16:39:04 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/12 16:39:55 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char *argv[])
+void	big_sort(t_stack **a, t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	if (argc < 2 || !argv)
-	{
-		ft_putendl("argc < 2");
-		exit(EXIT_SUCCESS);
-	}
-	a = stack_create(argc - 1);
-	b = stack_create(argc - 1);
-	if (!a || !b || !a->array || !b->array)
-		fail_exit(&a, &b);
-	fill_stack_with_args(&a, &b, argc, argv);
-	sort(&a, &b);
-	success_exit(&a, &b);
-	return (0);
+	(void)a;
+	(void)b;
 }
