@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:53:05 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 19:46:57 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 17:49:28 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,46 @@ void	pop(t_stack **stack)
 		return ;
 	if ((*stack)->top_id != -1)
 		(*stack)->top_id--;
+}
+
+int		min(t_stack *stack)
+{
+	size_t	i;
+	int		min;
+
+	if (stack->top_id == 0)
+		return (stack->array[0]);
+	else
+	{
+		i = 0;
+		min = stack->array[0];
+		while (i <= (size_t)stack->top_id)
+		{
+			if (stack->array[i] < min)
+				min = stack->array[i];
+			i++;
+		}
+	}
+	return (min);
+}
+
+int		max(t_stack *stack)
+{
+	size_t	i;
+	int		max;
+
+	if (stack->top_id == 0)
+		return (stack->array[0]);
+	else
+	{
+		i = 0;
+		max = stack->array[0];
+		while (i <= (size_t)stack->top_id)
+		{
+			if (stack->array[i] > max)
+				max = stack->array[i];
+			i++;
+		}
+	}
+	return (max);
 }

@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:53:02 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 20:50:19 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 17:51:31 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,22 @@ typedef struct s_stack
 
 t_stack	*stack_create(size_t size);
 void	stack_clear(t_stack **stack);
+void	push(t_stack **stack, int data);
 void	pop(t_stack **stack);
+int		min(t_stack *stack);
+int		max(t_stack *stack);
 
-void	swap(t_stack **stack);
 void	swap_a(t_stack **a);
 void	swap_b(t_stack **b);
 void	swap_a_swap_b(t_stack **a, t_stack **b);
 
-void	push(t_stack **stack, int data);
 void	push_a(t_stack **a, t_stack **b);
 void	push_b(t_stack **a, t_stack **b);
 
-void	rotate(t_stack **stack);
 void	rotate_a(t_stack **a);
 void	rotate_b(t_stack **b);
 void	rotate_a_and_rotate_b(t_stack **a, t_stack **b);
 
-void	reverse_rotate(t_stack **stack);
 void	reverse_rotate_a(t_stack **a);
 void	reverse_rotate_b(t_stack **b);
 void	reverse_rotate_a_and_reverse_rotate_b(t_stack **a, t_stack **b);

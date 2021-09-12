@@ -6,13 +6,13 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:34:52 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 21:01:45 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 17:50:42 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stack_utils.h"
 
-void	swap(t_stack **stack)
+static void	swap(t_stack **stack)
 {
 	int	temp_data;
 	int	top_id;

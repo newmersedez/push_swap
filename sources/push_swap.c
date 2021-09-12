@@ -6,12 +6,12 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 17:16:43 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 17:49:52 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
+#include <stdio.h>
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;

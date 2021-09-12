@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:17:07 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 16:39:23 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/12 17:30:15 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ void	success_exit(t_stack **a, t_stack **b);
 void	sort(t_stack **a, t_stack **b);
 void	small_sort(t_stack **a, t_stack **b);
 void	big_sort(t_stack **a, t_stack **b);
+void	sort_three_elements(t_stack **a);
+void	sort_five_elements(t_stack **a, t_stack **b);
 
 #endif
