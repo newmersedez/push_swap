@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 16:38:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 20:33:26 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/13 13:13:40 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,80 +41,50 @@ static void	sort_three_elements(t_stack **a)
 	}
 }
 
-static int	find_close_position(t_stack *a, int n)
+static int	find_close_number(t_stack *a, int n)
 {
-	int i;
+	int	i;
+	int	number;
 
+	if (a->top_id < 0 || n > max(a))
+		return (n);
 	i = 0;
-	while (i != a->top_id)
+	number = max(a);
+	while (i <= a->top_id)
 	{
-		if (n < a->array[i])
-			i++;
-		else
-			break ;
+		if (a->array[i] > n && a->array[i] < number)
+			number = a->array[i];
+		i++;
 	}
-	return (i);
+	return (number);
 }
 
-static void	smart_insert_to_a(t_stack **a, t_stack **b)
+static void	balance_rotate(t_stack **a, int n)
 {
-	int	a_first;
-	int	a_last;
-	int	b_first;
-	int	pos;
-	int	i;
-	size_t	size;
+	int	find;
 
-	a_first = (*a)->array[(*a)->top_id];
-	a_last = (*a)->array[0];
-	b_first = (*b)->array[(*b)->top_id];
-	if (b_first < a_first && b_first < a_last)
-	{
-		push_a(a, b);
-	}
-	else if (b_first > a_first && b_first > a_last)
-	{
-		push_a(a, b);
-		rotate_a(a);
-	}
-	else if (b_first > a_first && b_first < a_last)
-	{
-		pos = find_close_position(*a, b_first);
-		size = (*a)->top_id + 1;
-		if (pos <= size / 2)
-		{
-			i = 0;
-			while (i < pos)
-			{
-				reverse_rotate_a(a);
-				i++;
-			}
-			push_a(a, b);
-			i = 0;
-			while (i <= pos)
-			{
-				rotate_a(a);
-				i++;
-			}
-		}
-		else
-		{
-			pos = (*a)->top_id - pos;
-			i = 0;
-			while (i <= pos)
-			{
-				rotate_a(a);
-				i++;
-			}
-			push_a(a, b);
-			i = 0;
-			while (i <= pos)
-			{
-				reverse_rotate_a(a);
-				i++;
-			}
-		}
-	}
+	find = (*a)->top_id;
+	while (find >= 0 && (*a)->array[find] != n)
+		find--;
+	if (find < 0)
+		return ;
+	else if (find < (*a)->top_id / 2)
+		exec_command_n_times(RRA, a, NULL, find + 1);
+	else
+		exec_command_n_times(RA, a, NULL, (*a)->top_id - find);
+}
+
+static void	insert_to_a(t_stack **a, t_stack **b)
+{
+	int	top_b;
+	int	to_move;
+
+	top_b = (*b)->array[(*b)->top_id];
+	to_move = find_close_number(*a, top_b);
+	if (to_move == top_b)
+		to_move = min(*a);
+	balance_rotate(a, to_move);
+	push_a(a, b);
 }
 
 static void	sort_five_elements(t_stack **a, t_stack **b)
@@ -123,7 +93,8 @@ static void	sort_five_elements(t_stack **a, t_stack **b)
 		push_b(a, b);
 	sort_three_elements(a);
 	while ((*b)->top_id != -1)
-		smart_insert_to_a(a, b);
+		insert_to_a(a, b);
+	balance_rotate(a, min(*a));
 }
 
 void	small_sort(t_stack **a, t_stack **b)

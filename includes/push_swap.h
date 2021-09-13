@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:17:07 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 19:28:59 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/13 12:37:22 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 
 void	fill_stack_with_args(t_stack **a, t_stack **b, int argc, char *argv[]);
 void	clear_stacks(t_stack **a, t_stack **b);
+void	set_index_numbers(t_stack **stack);
 void	exec_command(char *operation, t_stack **a, t_stack **b);
 void	exec_command_n_times(char *operation, t_stack **a, t_stack **b, int n);
 

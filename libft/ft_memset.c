@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_sort.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 12:38:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/13 12:38:45 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/13 12:35:01 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/13 12:35:02 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	big_sort(t_stack **a, t_stack **b)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	(void)a;
-	(void)b;
+	size_t			i;
+	unsigned char	*ptr;
+	unsigned char	symbol;
+
+	i = 0;
+	ptr = (unsigned char *)b;
+	symbol = (unsigned char)c;
+	while (i < len)
+	{
+		*(ptr + i) = symbol;
+		i++;
+	}
+	return (b);
 }

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_sort.c                                         :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 12:38:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/13 12:38:45 by lorphan          ###   ########.fr       */
+/*   Created: 2021/09/13 12:34:38 by lorphan           #+#    #+#             */
+/*   Updated: 2021/09/13 12:34:39 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-void	big_sort(t_stack **a, t_stack **b)
+void	ft_bzero(void *s, size_t n)
 {
-	(void)a;
-	(void)b;
+	ft_memset(s, '\0', n);
 }
