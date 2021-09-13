@@ -1,1 +1,0 @@
-gcc -Wall -Wextra -Werror libft/*.c sources/*.c stack/*.c -o push_swap

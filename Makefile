@@ -6,13 +6,15 @@
 #    By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 14:38:55 by lorphan           #+#    #+#              #
-#    Updated: 2021/09/13 15:52:00 by lorphan          ###   ########.fr        #
+#    Updated: 2021/09/13 16:01:51 by lorphan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Utils
 NAME				= push_swap
-FLAGS				= -Wall -Wextra -Werror
+CC					= gcc
+RM					= rm -rf
+CFLAGS				= -Wall -Wextra -Werror
 
 # Directories
 SRCS_DIR			= sources/
@@ -70,26 +72,26 @@ STACK_OBJS		 	= $(addprefix $(STACK_DIR), $(STACK_OBJS_NAMES))
 
 # Rules
 $(SRCS_DIR)/%.o:	$(SRCS_DIR)/%.c $(SRCS_HDR)
-						@gcc $(FLAGS) -I$(SRCS_DIR) -c $< -o $(<:.c=.o)
+						$(CC) $(CFLAGS) -I$(SRCS_DIR) -c $< -o $(<:.c=.o)
 
 $(LIBFT_DIR)/%.o:	$(LIBFT_DIR)/%.c $(LIBFT_HDR)
-						@gcc $(FLAGS) -I$(LIBFT_DIR) -c $< -o $(<:.c=.o)
+						$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $(<:.c=.o)
 						
 $(STACK_DIR)/%.o:	$(STACK_DIR)/%.c $(STACK_HDR)
-						@gcc $(FLAGS) -I$(STACK_DIR) -c $< -o $(<:.c=.o)
+						$(CC) $(CFLAGS) -I$(STACK_DIR) -c $< -o $(<:.c=.o)
 
 all:				$(NAME)
 
-$(NAME):			$(SRCS_HDR) $(SRCS) $(LIBFT_HDR) $(LIBFT_SRCS) $(STACK_HDR) $(STACK_OBJS)
-						@gcc $(FLAGS) $(OBJS) $(LIBFT_OBJS) $(STACK_DIR) -o $(NAME)
+$(NAME):			$(SRCS_HDR) $(OBJS) $(LIBFT_HDR) $(LIBFT_OBJS) $(STACK_HDR) $(STACK_OBJS)
+						$(CC) $(CFLAGS) $(OBJS) $(LIBFT_OBJS) $(STACK_OBJS) -o $(NAME)
 
 clean:
-						@rm -rf $(OBJS) $(LIBFT_OBJS) $(STACK_OBJS)
+						$(RM) $(OBJS) $(LIBFT_OBJS) $(STACK_OBJS)
 
 fclean:				clean
-						@rm -rf $(NAME)
+						$(RM) $(NAME)
 
 re:					fclean all
 
-.PHONY:					all clean fclean re
+.PHONY:				all clean fclean re
 
