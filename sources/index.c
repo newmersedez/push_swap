@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 12:28:55 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/13 12:37:16 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/13 14:31:25 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,56 @@
 
 static void	insertion_sort(int *array, size_t size)
 {
-	int				i;
-	unsigned int	j;
-	int				key;
+	int	i;
+	int	j;
+	int	key;
 
-	j = 1;
-	while (j < size)
+	i = 1;
+	while (i < (int)size)
 	{
-		i = j - 1;
-		key = array[j++];
-		while (i >= 0 && array[i + 1] < array[i])
+		key = array[i];
+		j = i - 1;
+		while (j >= 0 && array[j] > key)
 		{
-			array[i + 1] = array[i];
-			array[i--] = key;
+			array[j + 1] = array[j];
+			j--;
 		}
+		array[j + 1] = key;
+		i++;
 	}
 }
 
-static int	*sorted_array_copy(t_stack **stack)
+static int	*create_copy_array(t_stack **a, t_stack **b)
 {
-	int		*copy;
-	size_t	size;
+	int		*dest;
+	size_t	allocate_size;
 
-	size = (*stack)->top_id + 1;
-	copy = malloc(size * sizeof(*copy));
-	ft_memcpy(copy, (*stack)->array, size * sizeof(*copy));
-	insertion_sort(copy, size);
-	return (copy);
+	allocate_size = (*a)->top_id + 1;
+	dest = (int *)malloc(allocate_size * sizeof(int));
+	if (!dest)
+		fail_exit(a, b);
+	ft_memcpy(dest, (*a)->array, allocate_size * sizeof(int));
+	insertion_sort(dest, allocate_size);
+	return (dest);
 }
 
-void	set_index_numbers(t_stack **stack)
+void	set_index_numbers(t_stack **a, t_stack **b)
 {
-	int		*copy;
 	int		i;
+	int		*copy_array;
 	size_t	pos;
-	int		*array;
+	size_t	allocate_size;
 
 	i = 0;
-	array = ft_calloc((*stack)->top_id + 1, sizeof(*array));
-	copy = sorted_array_copy(stack);
-	while (i <= (*stack)->top_id)
+	allocate_size = (*a)->top_id + 1;
+	copy_array = create_copy_array(a, b);
+	while (i <= (*a)->top_id)
 	{
 		pos = 0;
-		while (copy[pos] != (*stack)->array[i])
+		while (copy_array[pos] != (*a)->array[i])
 			pos++;
-		array[i++] = pos;
+		(*a)->array[i] = pos;
+		i++;
 	}
-	ft_memcpy((*stack)->array, array, ((*stack)->top_id + 1) * sizeof(*array));
-	free(copy);
-	free(array);
+	free(copy_array);
 }

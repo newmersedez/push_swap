@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:53:05 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 19:25:30 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/13 14:03:16 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	min(t_stack *stack)
 	{
 		i = 0;
 		min = stack->array[0];
-		while (i <= (size_t)stack->top_id)
+		while (i < (size_t)stack->top_id + 1)
 		{
 			if (stack->array[i] < min)
 				min = stack->array[i];
@@ -79,7 +79,7 @@ int	max(t_stack *stack)
 	{
 		i = 0;
 		max = stack->array[0];
-		while (i <= (size_t)stack->top_id)
+		while (i < (size_t)stack->top_id + 1)
 		{
 			if (stack->array[i] > max)
 				max = stack->array[i];

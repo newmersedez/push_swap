@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 16:38:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/13 13:13:40 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/13 13:36:53 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	find_close_number(t_stack *a, int n)
 		return (n);
 	i = 0;
 	number = max(a);
-	while (i <= a->top_id)
+	while (i < a->top_id + 1)
 	{
 		if (a->array[i] > n && a->array[i] < number)
 			number = a->array[i];
@@ -61,40 +61,49 @@ static int	find_close_number(t_stack *a, int n)
 
 static void	balance_rotate(t_stack **a, int n)
 {
-	int	find;
+	int	pos;
+	int	rotates_count;
 
-	find = (*a)->top_id;
-	while (find >= 0 && (*a)->array[find] != n)
-		find--;
-	if (find < 0)
-		return ;
-	else if (find < (*a)->top_id / 2)
-		exec_command_n_times(RRA, a, NULL, find + 1);
-	else
-		exec_command_n_times(RA, a, NULL, (*a)->top_id - find);
-}
-
-static void	insert_to_a(t_stack **a, t_stack **b)
-{
-	int	top_b;
-	int	to_move;
-
-	top_b = (*b)->array[(*b)->top_id];
-	to_move = find_close_number(*a, top_b);
-	if (to_move == top_b)
-		to_move = min(*a);
-	balance_rotate(a, to_move);
-	push_a(a, b);
+	pos = (*a)->top_id;
+	while (pos != -1 && (*a)->array[pos] != n)
+		pos--;
+	if (pos != -1)
+	{
+		if (pos < (*a)->top_id / 2)
+		{
+			rotates_count = pos + 1;
+			while (rotates_count--)
+				reverse_rotate_a(a);
+		}
+		else
+		{
+			rotates_count = (*a)->top_id - pos;
+			while (rotates_count--)
+				rotate_a(a);
+		}
+	}
 }
 
 static void	sort_five_elements(t_stack **a, t_stack **b)
 {
+	int	pos;
+	int	b_top_id;
+	int	b_first;
+
 	while ((*a)->top_id != 2)
 		push_b(a, b);
 	sort_three_elements(a);
 	while ((*b)->top_id != -1)
-		insert_to_a(a, b);
-	balance_rotate(a, min(*a));
+	{
+		b_top_id = (*b)->top_id;
+		b_first = (*b)->array[b_top_id];
+		pos = find_close_number(*a, b_first);
+		if (pos == b_first)
+			pos = min(*a);
+		balance_rotate(a, pos);
+		push_a(a, b);
+	}
+	balance_rotate(a, 0);
 }
 
 void	small_sort(t_stack **a, t_stack **b)

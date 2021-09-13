@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 19:21:32 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/12 19:25:55 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/13 14:03:29 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	exec_command(char *operation, t_stack **a, t_stack **b)
 
 void	exec_command_n_times(char *operation, t_stack **a, t_stack **b, int n)
 {
-	if (n <= 0)
+	if (n < 1)
 		return ;
 	while (n--)
 		exec_command(operation, a, b);

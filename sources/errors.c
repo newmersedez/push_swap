@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 18:02:11 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/11 21:38:53 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/13 14:32:07 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	display_error_message(char *message)
 
 void	fail_exit(t_stack **a, t_stack **b)
 {
-	display_error_message("ERROR");
+	display_error_message("Error");
 	stack_clear(a);
 	stack_clear(b);
 	exit(EXIT_FAILURE);
