@@ -6,7 +6,7 @@
 #    By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 14:38:55 by lorphan           #+#    #+#              #
-#    Updated: 2021/09/14 15:03:00 by lorphan          ###   ########.fr        #
+#    Updated: 2021/09/14 16:40:12 by lorphan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ STACK_HDR			= includes/stack_utils.h
 
 # Sources and objects names
 SRCS_NAMES			= big_sort.c\
+						big_sort_utils.c\
 						errors.c\
 						filling.c\
 						indexing.c\

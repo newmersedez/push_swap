@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:17:07 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/14 15:42:31 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/14 16:39:14 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,10 @@ void	big_sort(t_stack **a, t_stack **b);
 int		find_close_number(t_stack *a, int n);
 void	balance_rotate_a(t_stack **a, int n);
 void	balance_rotate_b(t_stack **b, int n);
+int		_index(t_stack *stack, int n);
+int		find_from_top(t_stack *a, int min, int max);
+int		find_from_bottom(t_stack *a, int min, int max);
+void	move_to_top(t_stack **a, int min, int max);
+void	move_min_or_max_to_top(t_stack **b);
 
 #endif
