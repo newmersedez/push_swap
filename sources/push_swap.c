@@ -6,11 +6,27 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:12:34 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/13 16:05:50 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/14 13:39:03 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+// #include <stdio.h>
+// static void	stack_print(t_stack *a)
+// {
+// 	int	i;
+
+// 	if (!a)
+// 		return ;
+// 	i = a->top_id;
+// 	while (i >= 0)
+// 	{
+// 		printf("%d\n", a->array[i]);
+// 		i--;
+// 	}
+// 	printf("\n\n");
+// }
 
 int	main(int argc, char *argv[])
 {

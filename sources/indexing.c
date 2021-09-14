@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 12:28:55 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/13 14:31:25 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/14 13:32:13 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,10 @@ static int	*create_copy_array(t_stack **a, t_stack **b)
 void	set_index_numbers(t_stack **a, t_stack **b)
 {
 	int		i;
-	int		*copy_array;
 	size_t	pos;
-	size_t	allocate_size;
+	int		*copy_array;
 
 	i = 0;
-	allocate_size = (*a)->top_id + 1;
 	copy_array = create_copy_array(a, b);
 	while (i <= (*a)->top_id)
 	{
