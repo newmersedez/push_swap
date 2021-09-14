@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:17:07 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/14 17:31:19 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/14 18:14:42 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # define CHUNK_SIZE_100 30
-# define CHUNK_SIZE_500 55
+# define CHUNK_SIZE_500 60
 # define ALGORITHM_LIMIT 5
 
 # include "stack_utils.h"
