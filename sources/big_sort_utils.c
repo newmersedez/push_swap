@@ -6,46 +6,36 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:38:10 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/14 16:39:44 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/14 17:25:25 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	_index(t_stack *stack, int n)
+int	find_pos_from_top(t_stack *a, int min, int max)
 {
-	int	i;
+	int	pos;
 
-	i = stack->top_id;
-	while (stack->array[i] != n && i != -1)
-		i--;
-	return (i);
-}
-
-int	find_from_top(t_stack *a, int min, int max)
-{
-	int	i;
-
-	i = 0;
-	while (i <= a->top_id)
+	pos = 0;
+	while (pos <= a->top_id)
 	{
-		if (a->array[i] >= min && a->array[i] <= max)
-			return (i);
-		i++;
+		if (a->array[pos] >= min && a->array[pos] <= max)
+			return (pos);
+		pos++;
 	}
 	return (-1);
 }
 
-int	find_from_bottom(t_stack *a, int min, int max)
+int	find_pos_from_bottom(t_stack *a, int min, int max)
 {
-	int	i;
+	int	pos;
 
-	i = a->top_id;
-	while (i >= 0)
+	pos = a->top_id;
+	while (pos >= 0)
 	{
-		if (a->array[i] >= min && a->array[i] <= max)
-			return (i);
-		i--;
+		if (a->array[pos] >= min && a->array[pos] <= max)
+			return (pos);
+		pos--;
 	}
 	return (-1);
 }
@@ -53,27 +43,39 @@ int	find_from_bottom(t_stack *a, int min, int max)
 void	move_to_top(t_stack **a, int min, int max)
 {
 	int	i;
-	int	index[2];
+	int	pos_top;
+	int	pos_bottom;
 
-	index[0] = find_from_top(*a, min, max);
-	index[1] = find_from_bottom(*a, min, max);
-	if (index[0] < (*a)->top_id - index[1])
-		i = index[0];
+	pos_top = find_pos_from_top(*a, min, max);
+	pos_bottom = find_pos_from_bottom(*a, min, max);
+	if (pos_top < (*a)->top_id - pos_bottom)
+		i = pos_top;
 	else
-		i = index[1];
+		i = pos_bottom;
 	balance_rotate_a(a, (*a)->array[i]);
+}
+
+int	get_index(t_stack *stack, int n)
+{
+	int	i;
+
+	i = stack->top_id;
+	while (i != -1 && stack->array[i] != n)
+		i--;
+	return (i);
 }
 
 void	move_min_or_max_to_top(t_stack **b)
 {
 	int	i;
-	int	index[2];
+	int	pos_top;
+	int	pos_bottom;
 
-	index[0] = _index(*b, min(*b));
-	index[1] = _index(*b, max(*b));
-	if (index[0] < (*b)->top_id - index[1])
-		i = index[0];
+	pos_top = get_index(*b, min(*b));
+	pos_bottom = get_index(*b, max(*b));
+	if (pos_top < (*b)->top_id - pos_bottom)
+		i = pos_top;
 	else
-		i = index[1];
+		i = pos_bottom;
 	balance_rotate_b(b, (*b)->array[i]);
 }
