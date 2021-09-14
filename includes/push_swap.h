@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:17:07 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/14 18:14:42 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/14 18:23:22 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 # include "stack_utils.h"
 # include "libft.h"
 
-/* Utils */
+/* Filling utils */
 
 void	fill_stack_with_args(t_stack **a, t_stack **b, int argc, char *argv[]);
 void	set_index_numbers(t_stack **a, t_stack **b);
 
-/* Clear memory and exit */
+/* Clear memory and exit utils*/
 
 void	clear_stacks(t_stack **a, t_stack **b);
 void	fail_exit(t_stack **a, t_stack **b);
