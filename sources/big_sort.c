@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 12:38:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/14 14:44:25 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/14 15:15:31 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,35 +25,6 @@ int	_index(t_stack *stack, int n)
 	return (i);
 }
 
-void	smart_rotate_b(t_stack **b, int n)
-{
-	int	find;
-	int	rotates_count;
-
-	find = (*b)->top_id;
-	while ((*b)->array[find] != n && find >= 0)
-		find--;
-	if (find < 0)
-		return ;
-	if (find < (*b)->top_id / 2)
-	{
-		rotates_count = find + 1;
-		while (rotates_count--)
-			reverse_rotate_b(b);
-	}
-	else
-	{
-		rotates_count = (*b)->top_id - find;
-		while (rotates_count--)
-			rotate_b(b);
-	}
-}
-
-static int	between(int n, int min, int max)
-{
-	return (n >= min && n <= max);
-}
-
 static int	find_from_top(t_stack *a, int min, int max)
 {
 	int	i;
@@ -61,7 +32,7 @@ static int	find_from_top(t_stack *a, int min, int max)
 	i = 0;
 	while (i <= a->top_id)
 	{
-		if (between(a->array[i], min, max))
+		if (a->array[i] >= min && a->array[i] <= max)
 			return (i);
 		i++;
 	}
@@ -75,7 +46,7 @@ static int	find_from_bottom(t_stack *a, int min, int max)
 	i = a->top_id;
 	while (i >= 0)
 	{
-		if (between(a->array[i], min, max))
+		if (a->array[i] >= min && a->array[i] <= max)
 			return (i);
 		i--;
 	}
@@ -93,7 +64,7 @@ void	move_to_top(t_stack **a, int min, int max)
 		i = index[0];
 	else
 		i = index[1];
-	balance_rotate(a, (*a)->array[i]);
+	balance_rotate_a(a, (*a)->array[i]);
 }
 
 void	move_min_or_max_to_top(t_stack **b)
@@ -107,32 +78,26 @@ void	move_min_or_max_to_top(t_stack **b)
 		i = index[0];
 	else
 		i = index[1];
-	smart_rotate_b(b, (*b)->array[i]);
+	balance_rotate_b(b, (*b)->array[i]);
 }
 
 ////////////////////////////////////////////////////////////
 
 
-
-void	put_in_position(t_stack **a, t_stack **b)
+void	sort_chunk(t_stack **a, t_stack **b)
 {
 	int	top_b;
 	int	to_move;
-
-	top_b = (*b)->array[(*b)->top_id];
-	to_move = find_close_number(*a, top_b);
-	if (to_move == top_b && (*a)->top_id >= 0)
-		to_move = min(*a);
-	balance_rotate(a, to_move);
-	push_a(a, b);
-}
-
-void	sort_chunk(t_stack **a, t_stack **b)
-{
+	
 	while ((*b)->top_id >= 0)
 	{
 		move_min_or_max_to_top(b);
-		put_in_position(a, b);
+		top_b = (*b)->array[(*b)->top_id];
+		to_move = find_close_number(*a, top_b);
+		if (to_move == top_b && (*a)->top_id >= 0)
+			to_move = min(*a);
+		balance_rotate_a(a, to_move);
+		push_a(a, b);
 	}
 }
 
@@ -170,5 +135,5 @@ void	big_sort(t_stack **a, t_stack **b)
 		limit_max = limit_min - 1;
 		chunks--;
 	}
-	balance_rotate(a, min(*a));
+	balance_rotate_a(a, min(*a));
 }

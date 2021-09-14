@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 16:38:31 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/13 16:13:26 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/14 15:04:32 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ static void	sort_five_elements(t_stack **a, t_stack **b)
 		pos = find_close_number(*a, b_first);
 		if (pos == b_first)
 			pos = min(*a);
-		balance_rotate(a, pos);
+		balance_rotate_a(a, pos);
 		push_a(a, b);
 	}
-	balance_rotate(a, 0);
+	balance_rotate_a(a, 0);
 }
 
 void	small_sort(t_stack **a, t_stack **b)

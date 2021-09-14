@@ -6,7 +6,7 @@
 /*   By: lorphan <lorphan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 19:21:32 by lorphan           #+#    #+#             */
-/*   Updated: 2021/09/13 16:13:31 by lorphan          ###   ########.fr       */
+/*   Updated: 2021/09/14 15:06:08 by lorphan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	find_close_number(t_stack *a, int n)
 	return (number);
 }
 
-void	balance_rotate(t_stack **a, int n)
+void	balance_rotate_a(t_stack **a, int n)
 {
 	int	pos;
 	int	rotates_count;
@@ -51,6 +51,31 @@ void	balance_rotate(t_stack **a, int n)
 			rotates_count = (*a)->top_id - pos;
 			while (rotates_count--)
 				rotate_a(a);
+		}
+	}
+}
+
+void	balance_rotate_b(t_stack **b, int n)
+{
+	int	pos;
+	int	rotates_count;
+
+	pos = (*b)->top_id;
+	while (pos != -1 && (*b)->array[pos] != n)
+		pos--;
+	if (pos != -1)
+	{
+		if (pos < (*b)->top_id / 2)
+		{
+			rotates_count = pos + 1;
+			while (rotates_count--)
+				reverse_rotate_b(b);
+		}
+		else
+		{
+			rotates_count = (*b)->top_id - pos;
+			while (rotates_count--)
+				rotate_b(b);
 		}
 	}
 }
